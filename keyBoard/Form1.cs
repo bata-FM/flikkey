@@ -20,7 +20,7 @@ namespace keyBoard
         public static int upPX;
         public static int upPY;
         public static string test = "aa";
-        public static MaterialRaisedButton[] buttonList = new MaterialRaisedButton[5];
+        public static Button[] buttonList = new Button[20];
         public static System.Windows.Forms.Button[] manyButtons = new Button[5];
         public static Panel panel1 = new Panel();
         public static string[] region = new string[] { "中", "左", "上", "右", "下" };
@@ -110,41 +110,75 @@ namespace keyBoard
 
 
 
-        private void materialRaisedButton1_MouseDown(object sender, MouseEventArgs e)
+        
+        private void keyButton1_MouseDown(object sender, MouseEventArgs e)
         {
             CreateButton(sender);
-        }
-
-        private void materialRaisedButton1_MouseUp(object sender, MouseEventArgs e)
-        {
-            for (int i = 1; i <= 4; i++)
+            //押されたボタンにより、隣接するボタンを非表示にする
+            if (((Button)sender).Name == "keyButton1")
             {
-                this.Controls.Remove(manyButtons[i]);
+                buttonList[0].Visible = false;
+                buttonList[2].Visible = false;
+                buttonList[6].Visible = false;
             }
+            else if (((Button)sender).Name == "keyButton2")
+            {
+                buttonList[1].Visible = false;
+                buttonList[3].Visible = false;
+                buttonList[7].Visible = false;
+            }
+            else if (((Button)sender).Name == "keyButton3")
+            {
+                buttonList[2].Visible = false;
+                buttonList[4].Visible = false;
+                buttonList[8].Visible = false;
+            }
+            else if (((Button)sender).Name == "keyButton16")
+            {
+                buttonList[11].Visible = false;
+                buttonList[15].Visible = false;
+                buttonList[17].Visible = false;
+            }
+            else if (((Button)sender).Name == "keyButton17")
+            {
+                buttonList[12].Visible = false;
+                buttonList[16].Visible = false;
+                buttonList[18].Visible = false;
+            }
+            else if (((Button)sender).Name == "keyButton18")
+            {
+                buttonList[13].Visible = false;
+                buttonList[17].Visible = false;
+                buttonList[19].Visible = false;
+            }
+            else
+            {
+                int ii=0;
+                foreach(Button btn in buttonList)
+                {
+                    if(btn.Name== ((Button)sender).Name)
+                    {
+                        break;
+                    }
+                    ii++;
+                }
+                buttonList[ii-1].Visible = false;
+                buttonList[ii-5].Visible = false;
+                buttonList[ii+1].Visible = false;
+                buttonList[ii+5].Visible = false;
+
+            }
+
         }
 
-
-        private void materialRaisedButton2_MouseDown(object sender, MouseEventArgs e)
-        {
-            CreateButton(sender);
-
-        }
-
-
-
-        private void materialRaisedButton2_MouseUp(object sender, MouseEventArgs e)
+        private void keyButton1_MouseUp(object sender, MouseEventArgs e)
         {
             upPX = int.Parse(Cursor.Position.X.ToString());
             upPY = int.Parse(Cursor.Position.Y.ToString());
-
-
             CenterULX = PointToScreen(manyButtons[0].Location).X;
             CenterULY = PointToScreen(manyButtons[0].Location).Y;
-
             CenterDRX = CenterULX + manyButtons[0].Size.Width;
             CenterDRY = CenterULY + manyButtons[0].Size.Height;
-
-
 
             regionResult = CheckRegion();
 
@@ -162,10 +196,13 @@ namespace keyBoard
                 i++;
 
             }
+            foreach(Button btn in buttonList)
+            {
+                btn.Visible = true;
+            }
 
 
-
-
+            //ボタン削除処理
             for (int m = 1; m <= 4; m++)
             {
 
@@ -174,25 +211,28 @@ namespace keyBoard
         }
 
 
+        
+
+
 
         private void CreateButton(object sender)
         {
             int T = 0;
             int Y = 0;
-            while (((MaterialRaisedButton)sender).Text != japanese[T, Y])
+            while (((Button)sender).Text != japanese[T, Y])
             {
                 T++;
             }
 
 
-            manyButtons[0] = ((MaterialRaisedButton)sender);
+            manyButtons[0] = ((Button)sender);
             clickPX = int.Parse(PointToScreen(Cursor.Position).X.ToString());
             clickPY = int.Parse(PointToScreen(Cursor.Position).Y.ToString());
 
             //い行のボタン
-            int panelx = ((MaterialRaisedButton)sender).Location.X - button_size;
-            int panely = ((MaterialRaisedButton)sender).Location.Y;
-            manyButtons[1] = new MaterialRaisedButton();
+            int panelx = ((Button)sender).Location.X - button_size;
+            int panely = ((Button)sender).Location.Y;
+            manyButtons[1] = new Button();
             manyButtons[1].Name = "iButton";
             manyButtons[1].Text = japanese[T, 1];
             manyButtons[1].Location = new Point(panelx, panely);
@@ -204,9 +244,9 @@ namespace keyBoard
 
 
             //ウ行のボタン
-            panelx = ((MaterialRaisedButton)sender).Location.X;
-            panely = ((MaterialRaisedButton)sender).Location.Y - button_size;
-            manyButtons[2] = new MaterialRaisedButton();
+            panelx = ((Button)sender).Location.X;
+            panely = ((Button)sender).Location.Y - button_size;
+            manyButtons[2] = new Button();
             manyButtons[2].Name = "uButton";
             manyButtons[2].Text = japanese[T, 2];
             manyButtons[2].Location = new Point(panelx, panely);
@@ -217,9 +257,9 @@ namespace keyBoard
 
 
             //え行のボタン
-            panelx = ((MaterialRaisedButton)sender).Location.X + button_size;
-            panely = ((MaterialRaisedButton)sender).Location.Y;
-            manyButtons[3] = new MaterialRaisedButton();
+            panelx = ((Button)sender).Location.X + button_size;
+            panely = ((Button)sender).Location.Y;
+            manyButtons[3] = new Button();
             manyButtons[3].Name = "eButton";
             manyButtons[3].Text = japanese[T, 3];
             manyButtons[3].Location = new Point(panelx, panely);
@@ -229,9 +269,9 @@ namespace keyBoard
             this.Controls.Add(manyButtons[3]);
 
             //お行のボタン
-            panelx = ((MaterialRaisedButton)sender).Location.X;
-            panely = ((MaterialRaisedButton)sender).Location.Y + button_size;
-            manyButtons[4] = new MaterialRaisedButton();
+            panelx = ((Button)sender).Location.X;
+            panely = ((Button)sender).Location.Y + button_size;
+            manyButtons[4] = new Button();
             manyButtons[4].Name = "oButton";
             manyButtons[4].Text = japanese[T, 4];
             manyButtons[4].Location = new Point(panelx, panely);
@@ -242,7 +282,7 @@ namespace keyBoard
 
             //test label
 
-            foreach (MaterialRaisedButton mate in manyButtons)
+            foreach (Button mate in manyButtons)
             {
             }
         }
@@ -251,6 +291,15 @@ namespace keyBoard
         private void Form1_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
+
+            for (int i = 0; i < 20; i++)
+            {
+                Control[] cs = this.Controls.Find("keyButton" + i, true);
+                if (cs.Length > 0)
+                {
+                    buttonList[i] = (Button)cs[0];
+                }
+            }
         }
 
         //今後つかうかも？
@@ -341,6 +390,8 @@ namespace keyBoard
         }
 
 
+
+        //ここから下岡ちゃん変更================
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
             dynamically_adding();
@@ -605,9 +656,34 @@ namespace keyBoard
             this.menu.BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void keyButton0_Click(object sender, EventArgs e)
         {
+            SendKeys.Send("{LEFT}");
+        }
 
+        private void keyButton5_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{RIGHT}");
+        }
+
+        private void keyButton4_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{BACKSPACE}");
+        }
+
+        private void keyButton9_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send(" ");
+        }
+
+        private void keyButton14_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send(" ");
+        }
+
+        private void keyButton19_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{ENTER}");
         }
     }
 }

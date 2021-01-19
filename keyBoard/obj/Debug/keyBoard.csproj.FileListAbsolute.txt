@@ -72,3 +72,15 @@ C:\Users\user\source\repos\flikkey\keyBoard\bin\Debug\WinFormAnimation.dll
 C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.Properties.Resources.resources
 C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CopyComplete
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\bin\Debug\keyBoard.exe.config
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\bin\Debug\keyBoard.exe
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\bin\Debug\keyBoard.pdb
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\bin\Debug\MaterialSkin.dll
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\bin\Debug\WinFormAnimation.dll
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.Form1.resources
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.Properties.Resources.resources
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.csproj.GenerateResource.cache
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CoreCompileInputs.cache
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CopyComplete
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.exe
+C:\Users\バター風味\source\repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.pdb
