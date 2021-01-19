@@ -235,7 +235,7 @@
             // FOCUS
             // 
             this.FOCUS.BackColor = System.Drawing.Color.Transparent;
-            this.FOCUS.BackgroundImage = global::keyBoard.Properties.Resources.FOCUS_Logo_wihte;
+            //this.FOCUS.BackgroundImage = global::keyBoard.Properties.Resources.FOCUS_Logo_wihte;
             this.FOCUS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FOCUS.FlatAppearance.BorderSize = 0;
             this.FOCUS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

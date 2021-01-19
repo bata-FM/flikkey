@@ -88,25 +88,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button2.BackgroundImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button6.BackgroundImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button5.BackgroundImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FOCUS-Logo_wihte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button4.BackgroundImage %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button3.BackgroundImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keyboard.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

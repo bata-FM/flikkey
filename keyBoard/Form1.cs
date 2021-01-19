@@ -500,7 +500,7 @@ namespace keyBoard
             // 
             this.Manual = new System.Windows.Forms.Button();
             this.Manual.BackColor = System.Drawing.Color.Transparent;
-            this.Manual.BackgroundImage = Properties.Resources.Manual_BackgroundImage;
+            //this.Manual.BackgroundImage = Properties.Resources.Manual_BackgroundImage;
             this.Manual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Manual.FlatAppearance.BorderSize = 0;
             this.Manual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -519,7 +519,7 @@ namespace keyBoard
             // 
             this.Settings = new System.Windows.Forms.Button();
             this.Settings.BackColor = System.Drawing.Color.Transparent;
-            this.Settings.BackgroundImage = Properties.Resources.Settings_BackgroundImage;
+            //this.Settings.BackgroundImage = Properties.Resources.Settings_BackgroundImage;
             this.Settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Settings.FlatAppearance.BorderSize = 0;
             this.Settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -538,7 +538,7 @@ namespace keyBoard
             // 
             this.Hamburger = new System.Windows.Forms.Button();
             this.Hamburger.BackColor = System.Drawing.Color.Transparent;
-            this.Hamburger.BackgroundImage = Properties.Resources.Hamburger_BackgroundImage;
+            //this.Hamburger.BackgroundImage = Properties.Resources.Hamburger_BackgroundImage;
             this.Hamburger.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Hamburger.FlatAppearance.BorderSize = 0;
             this.Hamburger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -560,7 +560,7 @@ namespace keyBoard
 
             this.Keyboard = new System.Windows.Forms.Button();
             this.Keyboard.BackColor = System.Drawing.Color.Transparent;
-            this.Keyboard.BackgroundImage = Properties.Resources.keyboard;
+            //this.Keyboard.BackgroundImage = Properties.Resources.Keyboard_BackgroundImage;
             this.Keyboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Keyboard.FlatAppearance.BorderSize = 0;
             this.Keyboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -582,7 +582,7 @@ namespace keyBoard
 
             this.Exit = new System.Windows.Forms.Button();
             this.Exit.BackColor = System.Drawing.Color.Transparent;
-            this.Exit.BackgroundImage = Properties.Resources.Keyboard_BackgroundImage;
+            //this.Exit.BackgroundImage = Properties.Resources.Exit_BackgroundImage;
             this.Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Exit.FlatAppearance.BorderSize = 0;
             this.Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

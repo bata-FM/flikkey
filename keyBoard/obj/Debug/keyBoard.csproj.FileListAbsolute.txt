@@ -59,3 +59,16 @@ C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.Gen
 C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.CoreCompileInputs.cache
 C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.CopyComplete
 C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\bin\Debug\WinFormAnimation.dll
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.csprojAssemblyReference.cache
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.Form1.resources
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.csproj.GenerateResource.cache
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.exe
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.pdb
+C:\Users\user\source\repos\flikkey\keyBoard\bin\Debug\keyBoard.exe.config
+C:\Users\user\source\repos\flikkey\keyBoard\bin\Debug\keyBoard.exe
+C:\Users\user\source\repos\flikkey\keyBoard\bin\Debug\keyBoard.pdb
+C:\Users\user\source\repos\flikkey\keyBoard\bin\Debug\MaterialSkin.dll
+C:\Users\user\source\repos\flikkey\keyBoard\bin\Debug\WinFormAnimation.dll
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.Properties.Resources.resources
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CopyComplete
