@@ -59,4 +59,3 @@ C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.Gen
 C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.CoreCompileInputs.cache
 C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.CopyComplete
 C:\Users\user\Downloads\keyBoard\keyBoard\keyBoard\bin\Debug\WinFormAnimation.dll
-C:\Users\バター風味\Desktop\keyBoard\keyBoard\keyBoard\bin\Debug\WinFormAnimation.dll

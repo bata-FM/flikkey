@@ -20,7 +20,7 @@ namespace keyBoard
         public static int upPX;
         public static int upPY;
         public static string test = "aa";
-        public static MaterialRaisedButton[] buttonList = new MaterialRaisedButton[20];
+        public static MaterialRaisedButton[] buttonList = new MaterialRaisedButton[5];
         public static System.Windows.Forms.Button[] manyButtons = new Button[5];
         public static Panel panel1 = new Panel();
         public static string[] region = new string[] { "中", "左", "上", "右", "下" };
@@ -31,15 +31,15 @@ namespace keyBoard
         public static int CenterDRX;
         public static int CenterDRY;
         public static string regionResult;
-        public static bool flag = true; 
+        public static bool flag = true;
 
         int screenH = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
         //ディスプレイの幅
         int screenW = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
 
-     
 
-        public static string[,]　japanese = new string[,] { 
+
+        public static string[,] japanese = new string[,] {
             {"あ","い","う","え","お"},
             {"か","き","く","け","こ" },
             {"さ","し","す","せ","そ" },
@@ -79,7 +79,7 @@ namespace keyBoard
             {"ら","り","る","れ","ろ"},
             {"わ","を","ん","",""},
         };
-        
+
 
         public Form1()
         {
@@ -108,7 +108,7 @@ namespace keyBoard
             }
         }
 
-       
+
 
         private void materialRaisedButton1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -142,11 +142,11 @@ namespace keyBoard
             CenterULY = PointToScreen(manyButtons[0].Location).Y;
 
             CenterDRX = CenterULX + manyButtons[0].Size.Width;
-            CenterDRY = CenterULY+ manyButtons[0].Size.Height;
+            CenterDRY = CenterULY + manyButtons[0].Size.Height;
 
 
 
-            regionResult= CheckRegion();
+            regionResult = CheckRegion();
 
             //入力処理
             int i = 0;
@@ -156,8 +156,8 @@ namespace keyBoard
                 {
                     string sendText = manyButtons[i].Text;
                     SendKeys.Send(sendText);
-    
-  
+
+
                 }
                 i++;
 
@@ -168,7 +168,7 @@ namespace keyBoard
 
             for (int m = 1; m <= 4; m++)
             {
-                
+
                 this.Controls.Remove(manyButtons[m]);
             }
         }
@@ -179,20 +179,20 @@ namespace keyBoard
         {
             int T = 0;
             int Y = 0;
-            while (((Button)sender).Text != japanese[T, Y])
+            while (((MaterialRaisedButton)sender).Text != japanese[T, Y])
             {
                 T++;
             }
 
 
-            manyButtons[0] = ((Button)sender);
+            manyButtons[0] = ((MaterialRaisedButton)sender);
             clickPX = int.Parse(PointToScreen(Cursor.Position).X.ToString());
             clickPY = int.Parse(PointToScreen(Cursor.Position).Y.ToString());
 
             //い行のボタン
-            int panelx = ((Button)sender).Location.X - button_size;
-            int panely = ((Button)sender).Location.Y;
-            manyButtons[1] = new Button();
+            int panelx = ((MaterialRaisedButton)sender).Location.X - button_size;
+            int panely = ((MaterialRaisedButton)sender).Location.Y;
+            manyButtons[1] = new MaterialRaisedButton();
             manyButtons[1].Name = "iButton";
             manyButtons[1].Text = japanese[T, 1];
             manyButtons[1].Location = new Point(panelx, panely);
@@ -204,9 +204,9 @@ namespace keyBoard
 
 
             //ウ行のボタン
-            panelx = ((Button)sender).Location.X;
-            panely = ((Button)sender).Location.Y - button_size;
-            manyButtons[2] = new Button();
+            panelx = ((MaterialRaisedButton)sender).Location.X;
+            panely = ((MaterialRaisedButton)sender).Location.Y - button_size;
+            manyButtons[2] = new MaterialRaisedButton();
             manyButtons[2].Name = "uButton";
             manyButtons[2].Text = japanese[T, 2];
             manyButtons[2].Location = new Point(panelx, panely);
@@ -217,9 +217,9 @@ namespace keyBoard
 
 
             //え行のボタン
-            panelx = ((Button)sender).Location.X + button_size;
-            panely = ((Button)sender).Location.Y;
-            manyButtons[3] = new Button();
+            panelx = ((MaterialRaisedButton)sender).Location.X + button_size;
+            panely = ((MaterialRaisedButton)sender).Location.Y;
+            manyButtons[3] = new MaterialRaisedButton();
             manyButtons[3].Name = "eButton";
             manyButtons[3].Text = japanese[T, 3];
             manyButtons[3].Location = new Point(panelx, panely);
@@ -229,9 +229,9 @@ namespace keyBoard
             this.Controls.Add(manyButtons[3]);
 
             //お行のボタン
-            panelx = ((Button)sender).Location.X;
-            panely = ((Button)sender).Location.Y + button_size;
-            manyButtons[4] = new Button();
+            panelx = ((MaterialRaisedButton)sender).Location.X;
+            panely = ((MaterialRaisedButton)sender).Location.Y + button_size;
+            manyButtons[4] = new MaterialRaisedButton();
             manyButtons[4].Name = "oButton";
             manyButtons[4].Text = japanese[T, 4];
             manyButtons[4].Location = new Point(panelx, panely);
@@ -242,7 +242,7 @@ namespace keyBoard
 
             //test label
 
-            foreach(Button mate in manyButtons)
+            foreach (MaterialRaisedButton mate in manyButtons)
             {
             }
         }
@@ -279,13 +279,13 @@ namespace keyBoard
             }
 
 
-            
+
 
             //い列入力検知(いくき等)
             if (upPX < CenterULX)
             {
-                int Threshold = CenterULX-upPX;
-                int yCheck = CenterULY-Threshold;
+                int Threshold = CenterULX - upPX;
+                int yCheck = CenterULY - Threshold;
                 int yCheckPlus = yCheck + manyButtons[0].Size.Height + Threshold * 2;
                 if (yCheck < upPY && upPY < yCheckPlus)
                 {
@@ -300,7 +300,7 @@ namespace keyBoard
             if (upPY < CenterULY)
             {
                 int Threshold = CenterULY - upPY;
-                int xCheck = CenterULX-Threshold;
+                int xCheck = CenterULX - Threshold;
                 int xCheckPlus = xCheck + manyButtons[0].Size.Width + Threshold * 2;
                 if (xCheck < upPX && upPX < xCheckPlus)
                 {
@@ -314,8 +314,8 @@ namespace keyBoard
             if (CenterDRX < upPX)
             {
                 int Threshold = upPX - CenterDRX;
-                int yCheck = CenterDRY - Threshold-manyButtons[0].Size.Height;
-                int yCheckPlus= yCheck + manyButtons[0].Size.Height + Threshold * 2;
+                int yCheck = CenterDRY - Threshold - manyButtons[0].Size.Height;
+                int yCheckPlus = yCheck + manyButtons[0].Size.Height + Threshold * 2;
                 if (yCheck < upPY && upPY < yCheckPlus)
                 {
                     regionResult = "右";
@@ -325,19 +325,19 @@ namespace keyBoard
             }
 
             //お列検知
-            if (CenterDRY<upPY)
+            if (CenterDRY < upPY)
             {
                 int Threshold = upPY - CenterULY;
                 int xCheck = CenterULX + Threshold;
                 int xCheckPlus = xCheck - manyButtons[0].Size.Width - Threshold * 2;
-                if (upPX<xCheck && xCheckPlus < upPX)
+                if (upPX < xCheck && xCheckPlus < upPX)
                 {
                     regionResult = "下";
                     return regionResult;
                 }
             }
 
-            return regionResult="範囲外";
+            return regionResult = "範囲外";
         }
 
 
@@ -346,38 +346,38 @@ namespace keyBoard
             dynamically_adding();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void set_label_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Manual_Click(object sender, EventArgs e)
         {
-            this.Controls.Remove(panel2);
+            this.Controls.Remove(menu);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Settings_Click(object sender, EventArgs e)
         {
-                foreach (Control material_btn in this.Controls)
+            foreach (Control material_btn in this.Controls)
+            {
+                if (material_btn is MaterialRaisedButton)
                 {
-                    if (material_btn is MaterialRaisedButton)
-                    {
-                        material_btn.Visible= false;
-                    }
-
+                    material_btn.Visible = false;
                 }
-            this.Controls.Remove(panel2);
+
+            }
+            this.Controls.Remove(menu);
 
         }
 
-        private void button2_MouseDown(object sender, MouseEventArgs e)
+        private void Hamburger_MouseDown(object sender, MouseEventArgs e)
         {
-            this.Controls.Remove(panel2);
+            this.Controls.Remove(menu);
         }
 
-        private void button3_MouseDown(object sender, MouseEventArgs e)
+        private void Keyboard_MouseDown(object sender, MouseEventArgs e)
         {
-            this.Controls.Remove(panel2);
+            this.Controls.Remove(menu);
             foreach (Control material_btn in this.Controls)
             {
                 if (material_btn is MaterialRaisedButton)
@@ -390,243 +390,224 @@ namespace keyBoard
         }
 
 
+     
+
+        private void Power_off(object sender, EventArgs e)
+        {
+                DialogResult result = MessageBox.Show("アプリケーションを終了しますか？",
+                "メッセージ",
+                 MessageBoxButtons.YesNoCancel,
+                 MessageBoxIcon.Information,
+                 MessageBoxDefaultButton.Button2);
+
+                //何が選択されたか調べる
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    this.Close();
+                }
+    }
+
+
         //動的コントロール追加（ラベル、ボタン）
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label key_label;
+        private System.Windows.Forms.Label set_label;
+        private System.Windows.Forms.Label manual_label;
+        private System.Windows.Forms.Label exit_label;
+        private System.Windows.Forms.Button Hamburger;
+        private System.Windows.Forms.Button Keyboard;
+        private System.Windows.Forms.Button Settings;
+        private System.Windows.Forms.Button Manual;
+        private System.Windows.Forms.Button Exit;
         private void dynamically_adding()
         {
             // 
-            // 横パネル
+            // メニューバー
             // 
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menu = new System.Windows.Forms.Panel();
+            this.menu.BackColor = System.Drawing.SystemColors.ControlLight;
 
-            this.panel2.Location = new System.Drawing.Point(0, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(256, 568);
-            this.panel2.TabIndex = 109;
-            this.panel2.SuspendLayout();
+            this.menu.Location = new System.Drawing.Point(0, 63);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(256, 568);
+            this.menu.TabIndex = 109;
+            this.menu.SuspendLayout();
             
 
             // 
-            // ホーム
+            // キーボード
             // 
-            this.label2 = new System.Windows.Forms.Label();
-            this.label2.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.label2.Location = new System.Drawing.Point(70, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 29);
-            this.label2.TabIndex = 110;
-            this.label2.Text = "キーボード";
-            this.label2.AutoSize = true;
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(button3_MouseDown); 
-            this.panel2.Controls.Add(label2);
+            this.key_label = new System.Windows.Forms.Label();
+            this.key_label.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.key_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.key_label.Location = new System.Drawing.Point(70, 120);
+            this.key_label.Name = "key_label";
+            this.key_label.Size = new System.Drawing.Size(90, 29);
+            this.key_label.TabIndex = 110;
+            this.key_label.Text = "キーボード";
+            this.key_label.AutoSize = true;
+            this.key_label.MouseDown += new System.Windows.Forms.MouseEventHandler(Keyboard_MouseDown); 
+            this.menu.Controls.Add(key_label);
             
 
             // 
             // 設定
             // 
-            this.label3 = new System.Windows.Forms.Label();
-            this.label3.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.label3.Location = new System.Drawing.Point(76, 245);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
-            this.label3.TabIndex = 111;
-            this.label3.Text = "設定";
-            this.label3.Click += new System.EventHandler(this.button4_Click);
-            this.label3.AutoSize = true;
-            this.panel2.Controls.Add(label3);
+            this.set_label = new System.Windows.Forms.Label();
+            this.set_label.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.set_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.set_label.Location = new System.Drawing.Point(76, 245);
+            this.set_label.Name = "set_label";
+            this.set_label.Size = new System.Drawing.Size(61, 20);
+            this.set_label.TabIndex = 111;
+            this.set_label.Text = "設定";
+            this.set_label.Click += new System.EventHandler(this.Settings_Click);
+            this.set_label.AutoSize = true;
+            this.menu.Controls.Add(set_label);
 
             // 
             // 使い方
             // 
-            this.label6 = new System.Windows.Forms.Label();
-            this.label6.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.label6.Location = new System.Drawing.Point(70, 365);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 23);
-            this.label6.TabIndex = 112;
-            this.label6.Text = "使い方";
-            this.label6.AutoSize = true;
-            this.panel2.Controls.Add(label6);
+            this.manual_label = new System.Windows.Forms.Label();
+            this.manual_label.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.manual_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.manual_label.Location = new System.Drawing.Point(70, 365);
+            this.manual_label.Name = "manual_label";
+            this.manual_label.Size = new System.Drawing.Size(93, 23);
+            this.manual_label.TabIndex = 112;
+            this.manual_label.Text = "使い方";
+            this.manual_label.AutoSize = true;
+            this.menu.Controls.Add(manual_label);
 
             // 
-            // 電源
+            // 終了
             // 
-            this.label7 = new System.Windows.Forms.Label();
-            this.label7.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.label7.Location = new System.Drawing.Point(76, 485);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 30);
-            this.label7.TabIndex = 112;
-            this.label7.Text = "電源";
-            this.label7.AutoSize = true;
-            this.panel2.Controls.Add(label7);
+            this.exit_label = new System.Windows.Forms.Label();
+            this.exit_label.Font = new System.Drawing.Font("游ゴシック", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.exit_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.exit_label.Location = new System.Drawing.Point(76, 485);
+            this.exit_label.Name = "exit_label";
+            this.exit_label.Size = new System.Drawing.Size(93, 30);
+            this.exit_label.TabIndex = 112;
+            this.exit_label.Text = "終了";
+            this.exit_label.AutoSize = true;
+            this.menu.Controls.Add(exit_label);
 
 
 
             // 
             // 使い方ボタン
             // 
-            this.button5 = new System.Windows.Forms.Button();
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImage = Properties.Resources.button5_BackgroundImage;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.Transparent;
-            this.button5.Location = new System.Drawing.Point(18, 360);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 38);
-            this.button5.TabIndex = 108;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            this.panel2.Controls.Add(button5);
+            this.Manual = new System.Windows.Forms.Button();
+            this.Manual.BackColor = System.Drawing.Color.Transparent;
+            this.Manual.BackgroundImage = Properties.Resources.Manual_BackgroundImage;
+            this.Manual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Manual.FlatAppearance.BorderSize = 0;
+            this.Manual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Manual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Manual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Manual.ForeColor = System.Drawing.Color.Transparent;
+            this.Manual.Location = new System.Drawing.Point(18, 360);
+            this.Manual.Name = "Manual";
+            this.Manual.Size = new System.Drawing.Size(30, 38);
+            this.Manual.TabIndex = 108;
+            this.Manual.UseVisualStyleBackColor = false;
+            this.Manual.Click += new System.EventHandler(this.Manual_Click);
+            this.menu.Controls.Add(Manual);
             // 
             // 設定ボタン
             // 
-            this.button4 = new System.Windows.Forms.Button();
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = Properties.Resources.button4_BackgroundImage;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Transparent;
-            this.button4.Location = new System.Drawing.Point(15, 240);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 38);
-            this.button4.TabIndex = 107;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            this.panel2.Controls.Add(button4);
+            this.Settings = new System.Windows.Forms.Button();
+            this.Settings.BackColor = System.Drawing.Color.Transparent;
+            this.Settings.BackgroundImage = Properties.Resources.Settings_BackgroundImage;
+            this.Settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Settings.FlatAppearance.BorderSize = 0;
+            this.Settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Settings.ForeColor = System.Drawing.Color.Transparent;
+            this.Settings.Location = new System.Drawing.Point(15, 240);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(35, 38);
+            this.Settings.TabIndex = 107;
+            this.Settings.UseVisualStyleBackColor = false;
+            this.Settings.Click += new System.EventHandler(this.Settings_Click);
+            this.menu.Controls.Add(Settings);
             // 
             // ハンバーガー
             // 
-            this.button2 = new System.Windows.Forms.Button();
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = Properties.Resources.button2_BackgroundImage;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 49);
-            this.button2.TabIndex = 106;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(button2_MouseDown);
-            this.panel2.Controls.Add(button2);
+            this.Hamburger = new System.Windows.Forms.Button();
+            this.Hamburger.BackColor = System.Drawing.Color.Transparent;
+            this.Hamburger.BackgroundImage = Properties.Resources.Hamburger_BackgroundImage;
+            this.Hamburger.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Hamburger.FlatAppearance.BorderSize = 0;
+            this.Hamburger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Hamburger.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Hamburger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Hamburger.ForeColor = System.Drawing.Color.Transparent;
+            this.Hamburger.Location = new System.Drawing.Point(3, 3);
+            this.Hamburger.Name = "Hamburger";
+            this.Hamburger.Size = new System.Drawing.Size(44, 49);
+            this.Hamburger.TabIndex = 106;
+            this.Hamburger.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Hamburger.UseVisualStyleBackColor = false;
+            this.Hamburger.MouseDown += new System.Windows.Forms.MouseEventHandler(Hamburger_MouseDown);
+            this.menu.Controls.Add(Hamburger);
 
             // 
-            // ホームボタン
+            //　キーボードボタン
             // 
 
-            this.button3 = new System.Windows.Forms.Button();
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImage = Properties.Resources.keyboard;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(15, 110);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(38, 38);
-            this.button3.TabIndex = 106;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.MouseDown += new System.Windows.Forms.MouseEventHandler(button3_MouseDown);
-            this.panel2.Controls.Add(button3);
+            this.Keyboard = new System.Windows.Forms.Button();
+            this.Keyboard.BackColor = System.Drawing.Color.Transparent;
+            this.Keyboard.BackgroundImage = Properties.Resources.keyboard;
+            this.Keyboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Keyboard.FlatAppearance.BorderSize = 0;
+            this.Keyboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Keyboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Keyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Keyboard.ForeColor = System.Drawing.Color.Transparent;
+            this.Keyboard.Location = new System.Drawing.Point(15, 110);
+            this.Keyboard.Name = "Keyboard";
+            this.Keyboard.Size = new System.Drawing.Size(38, 38);
+            this.Keyboard.TabIndex = 106;
+            this.Keyboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Keyboard.UseVisualStyleBackColor = false;
+            this.Keyboard.MouseDown += new System.Windows.Forms.MouseEventHandler(Keyboard_MouseDown);
+            this.menu.Controls.Add(Keyboard);
 
             // 
-            //　電源ボタン
+            //　終了ボタン
             // 
 
-            this.button6 = new System.Windows.Forms.Button();
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = Properties.Resources.button3_BackgroundImage;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.Transparent;
-            this.button6.Location = new System.Drawing.Point(15, 480);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(38, 38);
-            this.button6.TabIndex = 106;
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.MouseDown += new System.Windows.Forms.MouseEventHandler(button2_MouseDown);
-            this.panel2.Controls.Add(button6);
+            this.Exit = new System.Windows.Forms.Button();
+            this.Exit.BackColor = System.Drawing.Color.Transparent;
+            this.Exit.BackgroundImage = Properties.Resources.Keyboard_BackgroundImage;
+            this.Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Exit.FlatAppearance.BorderSize = 0;
+            this.Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exit.ForeColor = System.Drawing.Color.Transparent;
+            this.Exit.Location = new System.Drawing.Point(15, 480);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(38, 38);
+            this.Exit.TabIndex = 106;
+            this.Exit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.MouseDown += new System.Windows.Forms.MouseEventHandler(Power_off);
+
+            this.menu.Controls.Add(Exit);
 
 
-
-            this.Controls.Add(this.panel2);
-            this.panel2.BringToFront();
+            ///ボタンとラベルをパネルに追加
+            this.Controls.Add(this.menu);
+            this.menu.BringToFront();
         }
 
-        private void keyButton1_MouseDown(object sender, MouseEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            CreateButton(sender);
-        }
 
-        private void keyButton1_MouseUp(object sender, MouseEventArgs e)
-        {
-            upPX = int.Parse(Cursor.Position.X.ToString());
-            upPY = int.Parse(Cursor.Position.Y.ToString());
-
-
-            CenterULX = PointToScreen(manyButtons[0].Location).X;
-            CenterULY = PointToScreen(manyButtons[0].Location).Y;
-
-            CenterDRX = CenterULX + manyButtons[0].Size.Width;
-            CenterDRY = CenterULY + manyButtons[0].Size.Height;
-
-
-
-            regionResult = CheckRegion();
-
-            //入力処理
-            int i = 0;
-            foreach (string tmp in region)
-            {
-                if (tmp == regionResult)
-                {
-                    string sendText = manyButtons[i].Text;
-                    SendKeys.Send(sendText);
-
-
-                }
-                i++;
-
-            }
-
-
-            for (int m = 1; m <= 4; m++)
-            {
-
-                this.Controls.Remove(manyButtons[m]);
-            }
         }
     }
 }
