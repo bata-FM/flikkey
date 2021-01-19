@@ -1,0 +1,3 @@
+C:\Users\バター風味\Source\Repos\flikkey\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csprojAssemblyReference.cache
+C:\Users\バター風味\Source\Repos\flikkey\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.Form1.resources
+C:\Users\バター風味\Source\Repos\flikkey\keyBoard\keyBoard\keyBoard\obj\Debug\keyBoard.csproj.GenerateResource.cache
