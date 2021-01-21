@@ -85,10 +85,9 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(8, 8);
-            this.button1.Margin = new System.Windows.Forms.Padding(8);
+            this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 90);
+            this.button1.Size = new System.Drawing.Size(39, 36);
             this.button1.TabIndex = 105;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
@@ -97,10 +96,9 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(0, 158);
-            this.panel3.Margin = new System.Windows.Forms.Padding(8);
+            this.panel3.Location = new System.Drawing.Point(0, 63);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2339, 112);
+            this.panel3.Size = new System.Drawing.Size(877, 45);
             this.panel3.TabIndex = 107;
             // 
             // FOCUS
@@ -112,10 +110,9 @@
             this.FOCUS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.FOCUS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FOCUS.ForeColor = System.Drawing.Color.Transparent;
-            this.FOCUS.Location = new System.Drawing.Point(8, 2);
-            this.FOCUS.Margin = new System.Windows.Forms.Padding(8);
+            this.FOCUS.Location = new System.Drawing.Point(3, 1);
             this.FOCUS.Name = "FOCUS";
-            this.FOCUS.Size = new System.Drawing.Size(317, 148);
+            this.FOCUS.Size = new System.Drawing.Size(119, 59);
             this.FOCUS.TabIndex = 106;
             this.FOCUS.UseVisualStyleBackColor = false;
             // 
@@ -123,9 +120,11 @@
             // 
             this.groupBox1.Controls.Add(this.testLabel2);
             this.groupBox1.Controls.Add(this.testLabel1);
-            this.groupBox1.Location = new System.Drawing.Point(275, 1150);
+            this.groupBox1.Location = new System.Drawing.Point(103, 460);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1563, 688);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.groupBox1.Size = new System.Drawing.Size(586, 275);
             this.groupBox1.TabIndex = 109;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "testLabel";
@@ -133,18 +132,20 @@
             // testLabel2
             // 
             this.testLabel2.AutoSize = true;
-            this.testLabel2.Location = new System.Drawing.Point(207, 252);
+            this.testLabel2.Location = new System.Drawing.Point(78, 101);
+            this.testLabel2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.testLabel2.Name = "testLabel2";
-            this.testLabel2.Size = new System.Drawing.Size(84, 30);
+            this.testLabel2.Size = new System.Drawing.Size(35, 12);
             this.testLabel2.TabIndex = 1;
             this.testLabel2.Text = "label1";
             // 
             // testLabel1
             // 
             this.testLabel1.AutoSize = true;
-            this.testLabel1.Location = new System.Drawing.Point(202, 171);
+            this.testLabel1.Location = new System.Drawing.Point(76, 68);
+            this.testLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.testLabel1.Name = "testLabel1";
-            this.testLabel1.Size = new System.Drawing.Size(145, 30);
+            this.testLabel1.Size = new System.Drawing.Size(58, 12);
             this.testLabel1.TabIndex = 0;
             this.testLabel1.Text = "testLabel1";
             // 
@@ -154,19 +155,21 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(282, 323);
+            this.materialLabel1.Location = new System.Drawing.Point(106, 129);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(266, 46);
+            this.materialLabel1.Size = new System.Drawing.Size(108, 19);
             this.materialLabel1.TabIndex = 110;
             this.materialLabel1.Text = "materialLabel1";
             // 
             // keyButton1
             // 
             this.keyButton1.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton1.Location = new System.Drawing.Point(454, 408);
+            this.keyButton1.Location = new System.Drawing.Point(170, 163);
+            this.keyButton1.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton1.Name = "keyButton1";
-            this.keyButton1.Size = new System.Drawing.Size(187, 175);
+            this.keyButton1.Size = new System.Drawing.Size(70, 70);
             this.keyButton1.TabIndex = 108;
             this.keyButton1.Text = "あ";
             this.keyButton1.UseVisualStyleBackColor = false;
@@ -176,9 +179,10 @@
             // keyButton6
             // 
             this.keyButton6.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton6.Location = new System.Drawing.Point(454, 589);
+            this.keyButton6.Location = new System.Drawing.Point(170, 236);
+            this.keyButton6.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton6.Name = "keyButton6";
-            this.keyButton6.Size = new System.Drawing.Size(187, 175);
+            this.keyButton6.Size = new System.Drawing.Size(70, 70);
             this.keyButton6.TabIndex = 108;
             this.keyButton6.Text = "た";
             this.keyButton6.UseVisualStyleBackColor = false;
@@ -188,9 +192,10 @@
             // keyButton11
             // 
             this.keyButton11.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton11.Location = new System.Drawing.Point(454, 770);
+            this.keyButton11.Location = new System.Drawing.Point(170, 308);
+            this.keyButton11.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton11.Name = "keyButton11";
-            this.keyButton11.Size = new System.Drawing.Size(187, 175);
+            this.keyButton11.Size = new System.Drawing.Size(70, 70);
             this.keyButton11.TabIndex = 108;
             this.keyButton11.Text = "ま";
             this.keyButton11.UseVisualStyleBackColor = false;
@@ -200,21 +205,23 @@
             // keyButton16
             // 
             this.keyButton16.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton16.Location = new System.Drawing.Point(454, 951);
+            this.keyButton16.Location = new System.Drawing.Point(170, 380);
+            this.keyButton16.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton16.Name = "keyButton16";
-            this.keyButton16.Size = new System.Drawing.Size(187, 175);
+            this.keyButton16.Size = new System.Drawing.Size(70, 70);
             this.keyButton16.TabIndex = 108;
-            this.keyButton16.Text = "あ";
+            this.keyButton16.Text = "濁点";
             this.keyButton16.UseVisualStyleBackColor = false;
-            this.keyButton16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.keyButton1_MouseDown);
-            this.keyButton16.MouseUp += new System.Windows.Forms.MouseEventHandler(this.keyButton1_MouseUp);
+
+            this.keyButton16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.keyButton16_MouseClick);
             // 
             // keyButton2
             // 
             this.keyButton2.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton2.Location = new System.Drawing.Point(647, 408);
+            this.keyButton2.Location = new System.Drawing.Point(243, 163);
+            this.keyButton2.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton2.Name = "keyButton2";
-            this.keyButton2.Size = new System.Drawing.Size(187, 175);
+            this.keyButton2.Size = new System.Drawing.Size(70, 70);
             this.keyButton2.TabIndex = 108;
             this.keyButton2.Text = "か";
             this.keyButton2.UseVisualStyleBackColor = false;
@@ -224,9 +231,10 @@
             // keyButton7
             // 
             this.keyButton7.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton7.Location = new System.Drawing.Point(647, 589);
+            this.keyButton7.Location = new System.Drawing.Point(243, 236);
+            this.keyButton7.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton7.Name = "keyButton7";
-            this.keyButton7.Size = new System.Drawing.Size(187, 175);
+            this.keyButton7.Size = new System.Drawing.Size(70, 70);
             this.keyButton7.TabIndex = 108;
             this.keyButton7.Text = "な";
             this.keyButton7.UseVisualStyleBackColor = false;
@@ -236,9 +244,10 @@
             // keyButton12
             // 
             this.keyButton12.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton12.Location = new System.Drawing.Point(647, 770);
+            this.keyButton12.Location = new System.Drawing.Point(243, 308);
+            this.keyButton12.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton12.Name = "keyButton12";
-            this.keyButton12.Size = new System.Drawing.Size(187, 175);
+            this.keyButton12.Size = new System.Drawing.Size(70, 70);
             this.keyButton12.TabIndex = 108;
             this.keyButton12.Text = "や";
             this.keyButton12.UseVisualStyleBackColor = false;
@@ -248,9 +257,10 @@
             // keyButton17
             // 
             this.keyButton17.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton17.Location = new System.Drawing.Point(647, 951);
+            this.keyButton17.Location = new System.Drawing.Point(243, 380);
+            this.keyButton17.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton17.Name = "keyButton17";
-            this.keyButton17.Size = new System.Drawing.Size(187, 175);
+            this.keyButton17.Size = new System.Drawing.Size(70, 70);
             this.keyButton17.TabIndex = 108;
             this.keyButton17.Text = "わ";
             this.keyButton17.UseVisualStyleBackColor = false;
@@ -260,9 +270,10 @@
             // keyButton3
             // 
             this.keyButton3.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton3.Location = new System.Drawing.Point(840, 408);
+            this.keyButton3.Location = new System.Drawing.Point(315, 163);
+            this.keyButton3.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton3.Name = "keyButton3";
-            this.keyButton3.Size = new System.Drawing.Size(187, 175);
+            this.keyButton3.Size = new System.Drawing.Size(70, 70);
             this.keyButton3.TabIndex = 108;
             this.keyButton3.Text = "さ";
             this.keyButton3.UseVisualStyleBackColor = false;
@@ -272,9 +283,10 @@
             // keyButton8
             // 
             this.keyButton8.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton8.Location = new System.Drawing.Point(840, 589);
+            this.keyButton8.Location = new System.Drawing.Point(315, 236);
+            this.keyButton8.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton8.Name = "keyButton8";
-            this.keyButton8.Size = new System.Drawing.Size(187, 175);
+            this.keyButton8.Size = new System.Drawing.Size(70, 70);
             this.keyButton8.TabIndex = 108;
             this.keyButton8.Text = "は";
             this.keyButton8.UseVisualStyleBackColor = false;
@@ -284,9 +296,10 @@
             // keyButton13
             // 
             this.keyButton13.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton13.Location = new System.Drawing.Point(840, 770);
+            this.keyButton13.Location = new System.Drawing.Point(315, 308);
+            this.keyButton13.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton13.Name = "keyButton13";
-            this.keyButton13.Size = new System.Drawing.Size(187, 175);
+            this.keyButton13.Size = new System.Drawing.Size(70, 70);
             this.keyButton13.TabIndex = 108;
             this.keyButton13.Text = "ら";
             this.keyButton13.UseVisualStyleBackColor = false;
@@ -296,11 +309,12 @@
             // keyButton18
             // 
             this.keyButton18.BackColor = System.Drawing.Color.FloralWhite;
-            this.keyButton18.Location = new System.Drawing.Point(840, 951);
+            this.keyButton18.Location = new System.Drawing.Point(315, 380);
+            this.keyButton18.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton18.Name = "keyButton18";
-            this.keyButton18.Size = new System.Drawing.Size(187, 175);
+            this.keyButton18.Size = new System.Drawing.Size(70, 70);
             this.keyButton18.TabIndex = 108;
-            this.keyButton18.Text = "あ";
+            this.keyButton18.Text = "、。？！";
             this.keyButton18.UseVisualStyleBackColor = false;
             this.keyButton18.MouseDown += new System.Windows.Forms.MouseEventHandler(this.keyButton1_MouseDown);
             this.keyButton18.MouseUp += new System.Windows.Forms.MouseEventHandler(this.keyButton1_MouseUp);
@@ -308,9 +322,10 @@
             // keyButton0
             // 
             this.keyButton0.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton0.Location = new System.Drawing.Point(261, 408);
+            this.keyButton0.Location = new System.Drawing.Point(98, 163);
+            this.keyButton0.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton0.Name = "keyButton0";
-            this.keyButton0.Size = new System.Drawing.Size(187, 175);
+            this.keyButton0.Size = new System.Drawing.Size(70, 70);
             this.keyButton0.TabIndex = 111;
             this.keyButton0.Text = "←";
             this.keyButton0.UseVisualStyleBackColor = false;
@@ -319,9 +334,10 @@
             // keyButton5
             // 
             this.keyButton5.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton5.Location = new System.Drawing.Point(261, 589);
+            this.keyButton5.Location = new System.Drawing.Point(98, 236);
+            this.keyButton5.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton5.Name = "keyButton5";
-            this.keyButton5.Size = new System.Drawing.Size(187, 175);
+            this.keyButton5.Size = new System.Drawing.Size(70, 70);
             this.keyButton5.TabIndex = 111;
             this.keyButton5.Text = "→";
             this.keyButton5.UseVisualStyleBackColor = false;
@@ -330,29 +346,34 @@
             // keyButton10
             // 
             this.keyButton10.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton10.Location = new System.Drawing.Point(261, 770);
+            this.keyButton10.Location = new System.Drawing.Point(98, 308);
+            this.keyButton10.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton10.Name = "keyButton10";
-            this.keyButton10.Size = new System.Drawing.Size(187, 175);
+            this.keyButton10.Size = new System.Drawing.Size(70, 70);
             this.keyButton10.TabIndex = 111;
             this.keyButton10.Text = "１２３";
             this.keyButton10.UseVisualStyleBackColor = false;
+            this.keyButton10.Click += new System.EventHandler(this.keyButton10_Click);
             // 
             // keyButton15
             // 
             this.keyButton15.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton15.Location = new System.Drawing.Point(261, 951);
+            this.keyButton15.Location = new System.Drawing.Point(98, 380);
+            this.keyButton15.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton15.Name = "keyButton15";
-            this.keyButton15.Size = new System.Drawing.Size(187, 175);
+            this.keyButton15.Size = new System.Drawing.Size(70, 70);
             this.keyButton15.TabIndex = 111;
             this.keyButton15.Text = "半角";
             this.keyButton15.UseVisualStyleBackColor = false;
+            this.keyButton15.Click += new System.EventHandler(this.keyButton15_Click);
             // 
             // keyButton4
             // 
             this.keyButton4.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton4.Location = new System.Drawing.Point(1033, 408);
+            this.keyButton4.Location = new System.Drawing.Point(387, 163);
+            this.keyButton4.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton4.Name = "keyButton4";
-            this.keyButton4.Size = new System.Drawing.Size(187, 175);
+            this.keyButton4.Size = new System.Drawing.Size(70, 70);
             this.keyButton4.TabIndex = 111;
             this.keyButton4.Text = "BACK\r\nSPACE\r\n";
             this.keyButton4.UseVisualStyleBackColor = false;
@@ -361,9 +382,10 @@
             // keyButton9
             // 
             this.keyButton9.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton9.Location = new System.Drawing.Point(1033, 589);
+            this.keyButton9.Location = new System.Drawing.Point(387, 236);
+            this.keyButton9.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton9.Name = "keyButton9";
-            this.keyButton9.Size = new System.Drawing.Size(187, 175);
+            this.keyButton9.Size = new System.Drawing.Size(70, 70);
             this.keyButton9.TabIndex = 111;
             this.keyButton9.Text = "SPACE";
             this.keyButton9.UseVisualStyleBackColor = false;
@@ -372,9 +394,10 @@
             // keyButton14
             // 
             this.keyButton14.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton14.Location = new System.Drawing.Point(1033, 770);
+            this.keyButton14.Location = new System.Drawing.Point(387, 308);
+            this.keyButton14.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton14.Name = "keyButton14";
-            this.keyButton14.Size = new System.Drawing.Size(187, 175);
+            this.keyButton14.Size = new System.Drawing.Size(70, 70);
             this.keyButton14.TabIndex = 111;
             this.keyButton14.Text = "変換";
             this.keyButton14.UseVisualStyleBackColor = false;
@@ -383,9 +406,10 @@
             // keyButton19
             // 
             this.keyButton19.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.keyButton19.Location = new System.Drawing.Point(1033, 951);
+            this.keyButton19.Location = new System.Drawing.Point(387, 380);
+            this.keyButton19.Margin = new System.Windows.Forms.Padding(1);
             this.keyButton19.Name = "keyButton19";
-            this.keyButton19.Size = new System.Drawing.Size(187, 175);
+            this.keyButton19.Size = new System.Drawing.Size(70, 70);
             this.keyButton19.TabIndex = 111;
             this.keyButton19.Text = "Enter";
             this.keyButton19.UseVisualStyleBackColor = false;
@@ -393,9 +417,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3399, 1575);
+            this.ClientSize = new System.Drawing.Size(1111, 617);
             this.Controls.Add(this.keyButton19);
             this.Controls.Add(this.keyButton15);
             this.Controls.Add(this.keyButton14);
@@ -420,7 +444,6 @@
             this.Controls.Add(this.keyButton1);
             this.Controls.Add(this.FOCUS);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel3.ResumeLayout(false);

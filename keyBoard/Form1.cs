@@ -22,6 +22,8 @@ namespace keyBoard
         public static string test = "aa";
         public static Button[] buttonList = new Button[20];
         public static System.Windows.Forms.Button[] manyButtons = new Button[5];
+        public static System.Windows.Forms.Button[] wordButtons = new Button[12];
+        public static string[,] word;
         public static Panel panel1 = new Panel();
         public static string[] region = new string[] { "中", "左", "上", "右", "下" };
         public static int[,] regionPoint = new int[5, 2];
@@ -32,12 +34,28 @@ namespace keyBoard
         public static int CenterDRY;
         public static string regionResult;
         public static bool flag = true;
+        public static bool japanFlag = true;
+        public static string[,] kigouRegion = japanese;
+        public static int kigouFlag = 0;
 
         int screenH = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
         //ディスプレイの幅
         int screenW = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
 
-
+        public static string[,] number = new string[,] {
+            {"1","","","",""},
+            {"2","","","",""},
+            {"3","","","",""},
+            {"4","","","",""},
+            {"5","","","",""},
+            {"6","","","",""},
+            {"7","","","",""},
+            {"8","","","",""},
+            {"9","","","",""},
+            {"0","","","",""},
+            {"+-F*/","-","*","/",""},
+            {"=","","","",""},
+        };
 
         public static string[,] japanese = new string[,] {
             {"あ","い","う","え","お"},
@@ -49,7 +67,10 @@ namespace keyBoard
             {"ま","み","む","め","も" },
             {"や","ゆ","よ","","" },
             {"ら","り","る","れ","ろ" },
-            {"わ","を","ん","","" },
+            {"濁点","","","","" },
+            {"わ","を","ん","\"","" },
+            {"、。？！","。","？","！","" },
+            
 
         };
 
@@ -63,21 +84,56 @@ namespace keyBoard
             {"ま","み","む","め","も"},
             {"や","ゆ","よ","",""},
             {"ら","り","る","れ","ろ"},
-            {"わ","を","ん","",""},
+             {"半濁点","","","","" },
+            {"わ","を","ん","\"","" },
+            {"、。？！","。","？","！","" },
         };
 
         public static string[,] handakuon = new string[,]
         {
             {"あ","い","う","え","お"},
-            {"が","ぎ","ぐ","げ","ご"},
-            {"ざ","じ","ず","ぜ","ぞ"},
-            {"だ","ぢ","づ","で","ど" },
+            {"か","き","く","け","こ" },
+            {"さ","し","す","せ","そ" },
+            {"た","ち","つ","て","と" },
             {"な","に","ぬ","ね","の" },
             {"ぱ","ぴ","ぷ","ぺ","ぽ"},
             {"ま","み","む","め","も"},
             {"や","ゆ","よ","",""},
             {"ら","り","る","れ","ろ"},
-            {"わ","を","ん","",""},
+             {"あかさ","","","","" },
+            {"わ","を","ん","\"","" },
+            {"、。？！","。","？","！","" },
+        };
+
+        public static string[,] alphabet = new string[,]
+        {
+            {"abc","b","c","","" },
+            {"def","e","f","","" },
+            {"ghi","h","i","","" },
+            {"jkl","k","l","","" },
+            {"mno","n","o","","" },
+            {"pqrs","q","r","s","" },
+            {"tuv","u","v","","" },
+            {"wxyz","x","y","z","" },
+            {"@#/$_","#","/","$","_" },
+            {"大文字","","","","" },
+            {"\'\"()","\"","(",")","" },
+            {".,?!",",","?","!","" },
+        };
+        public static string[,] ooalphabet = new string[,]
+        {
+            {"ABC0","B","C","","" },
+            {"DEF","E","F","","" },
+            {"GHI","H","I","","" },
+            {"JKL","K","L","","" },
+            {"MNO","N","O","","" },
+            {"PQRS","Q","R","S","" },
+            {"TUV","U","V","","" },
+            {"WXYZ","X","Y","Z","" },
+            {"@#/$_","#","/","$","_" },
+            {"大文字","","","","" },
+            {"\'\"()","\"","(",")","" },
+            {".,?!",",","?","!","" },
         };
 
 
@@ -88,7 +144,6 @@ namespace keyBoard
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-
         }
 
         //フォームを非アクティブに
@@ -188,8 +243,23 @@ namespace keyBoard
             {
                 if (tmp == regionResult)
                 {
-                    string sendText = manyButtons[i].Text;
-                    SendKeys.Send(sendText);
+                    try
+                    {
+                        string sendText = manyButtons[i].Text;
+                        sendText = sendText.Substring(0, 1);
+
+                        if (sendText == "(" || sendText == ")"||sendText=="+")
+                        {
+                            sendText = "{" + sendText + "}";
+                        }
+                        testLabel1.Text = sendText;
+                        SendKeys.Send(sendText);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                    
 
 
                 }
@@ -211,18 +281,18 @@ namespace keyBoard
         }
 
 
-        
-
-
-
         private void CreateButton(object sender)
         {
             int T = 0;
             int Y = 0;
-            while (((Button)sender).Text != japanese[T, Y])
+           
+            while (((Button)sender).Text != word[T, Y])
             {
                 T++;
             }
+
+            
+            
 
 
             manyButtons[0] = ((Button)sender);
@@ -234,7 +304,7 @@ namespace keyBoard
             int panely = ((Button)sender).Location.Y;
             manyButtons[1] = new Button();
             manyButtons[1].Name = "iButton";
-            manyButtons[1].Text = japanese[T, 1];
+            manyButtons[1].Text = word[T, 1];
             manyButtons[1].Location = new Point(panelx, panely);
             manyButtons[1].Size = new Size(button_size, button_size);
             manyButtons[1].TabIndex = 9;
@@ -248,7 +318,7 @@ namespace keyBoard
             panely = ((Button)sender).Location.Y - button_size;
             manyButtons[2] = new Button();
             manyButtons[2].Name = "uButton";
-            manyButtons[2].Text = japanese[T, 2];
+            manyButtons[2].Text = word[T, 2];
             manyButtons[2].Location = new Point(panelx, panely);
             manyButtons[2].Size = new Size(button_size, button_size);
             manyButtons[2].TabIndex = 9;
@@ -261,7 +331,7 @@ namespace keyBoard
             panely = ((Button)sender).Location.Y;
             manyButtons[3] = new Button();
             manyButtons[3].Name = "eButton";
-            manyButtons[3].Text = japanese[T, 3];
+            manyButtons[3].Text = word[T, 3];
             manyButtons[3].Location = new Point(panelx, panely);
             manyButtons[3].Size = new Size(button_size, button_size);
             manyButtons[3].BringToFront();
@@ -273,7 +343,7 @@ namespace keyBoard
             panely = ((Button)sender).Location.Y + button_size;
             manyButtons[4] = new Button();
             manyButtons[4].Name = "oButton";
-            manyButtons[4].Text = japanese[T, 4];
+            manyButtons[4].Text = word[T, 4];
             manyButtons[4].Location = new Point(panelx, panely);
             manyButtons[4].Size = new Size(button_size, button_size);
             manyButtons[4].BringToFront();
@@ -291,15 +361,155 @@ namespace keyBoard
         private void Form1_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
-
-            for (int i = 0; i < 20; i++)
+            word = japanese;
+            for (int l = 0; l < 20; l++)
             {
-                Control[] cs = this.Controls.Find("keyButton" + i, true);
+                Control[] cs = this.Controls.Find("keyButton" + l, true);
                 if (cs.Length > 0)
                 {
-                    buttonList[i] = (Button)cs[0];
+                    buttonList[l] = (Button)cs[0];
                 }
             }
+            int starti = 0;
+            int i = 0;
+            while (starti <= 15)
+            {
+                for(int count = 1; count <= 3; count++)
+                {
+                    wordButtons[i] = buttonList[starti+count];
+                    i++;
+                }
+                starti += 5;
+                
+            }
+           
+
+
+        }
+
+        private void keyButton0_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{LEFT}");
+        }
+
+        private void keyButton5_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{RIGHT}");
+        }
+
+        private void keyButton4_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{BACKSPACE}");
+        }
+
+        private void keyButton9_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send(" ");
+        }
+
+        private void keyButton14_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send(" ");
+        }
+
+        private void keyButton19_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{ENTER}");
+        }
+        private void keyButton15_Click(object sender, EventArgs e)
+        {
+            japanFlag = !japanFlag;
+            if (japanFlag)
+            {
+                kigouFlag = 4;
+                keyButton15.Text = "半角";
+                word = japanese;
+                testLabel2.Text = "";
+
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
+                    btn.Text = japanese[wordCount, 0];
+                    wordCount++;
+                }
+            }
+            else
+            {
+                keyButton15.Text = "全角";
+                word = alphabet;
+                testLabel2.Text = "";
+                foreach (Button bt in wordButtons)
+                {
+                    testLabel2.Text += bt.Text + " ";
+                }
+
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
+                    btn.Text = alphabet[wordCount, 0];
+                    wordCount++;
+                }
+            }
+        }
+
+        private void keyButton16_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (kigouFlag == 0)
+            {
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
+                    btn.Text = dakuten[wordCount, 0];
+                    wordCount++;
+                }
+                word = dakuten;
+                kigouFlag++;
+            }
+            else if (kigouFlag == 1)
+            {
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
+                    btn.Text = handakuon[wordCount, 0];
+                    wordCount++;
+                }
+                word = handakuon;
+                kigouFlag++;
+            }
+            else if (kigouFlag == 2)
+            {
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
+                    btn.Text = japanese[wordCount, 0];
+                    wordCount++;
+                }
+                word = japanese;
+                kigouFlag=0;
+            }
+            else if (kigouFlag == 4)
+            {
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
+                    btn.Text = alphabet[wordCount, 0];
+                    wordCount++;
+                }
+                word = japanese;
+                kigouFlag ++;
+            }
+
+        }
+
+        private void keyButton10_Click(object sender, EventArgs e)
+        {
+            int wordCount = 0;
+            foreach (Button btn in wordButtons)
+            {
+                btn.Text = number[wordCount, 0];
+                wordCount++;
+            }
+            word = number;
         }
 
         //今後つかうかも？
@@ -656,34 +866,6 @@ namespace keyBoard
             this.menu.BringToFront();
         }
 
-        private void keyButton0_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{LEFT}");
-        }
-
-        private void keyButton5_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{RIGHT}");
-        }
-
-        private void keyButton4_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{BACKSPACE}");
-        }
-
-        private void keyButton9_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send(" ");
-        }
-
-        private void keyButton14_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send(" ");
-        }
-
-        private void keyButton19_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{ENTER}");
-        }
+       
     }
 }
