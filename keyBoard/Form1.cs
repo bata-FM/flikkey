@@ -131,7 +131,7 @@ namespace keyBoard
             {"TUV","U","V","","" },
             {"WXYZ","X","Y","Z","" },
             {"@#/$_","#","/","$","_" },
-            {"大文字","","","","" },
+            {"小文字た","","","","" },
             {"\'\"()","\"","(",")","" },
             {".,?!",",","?","!","" },
         };
@@ -421,7 +421,7 @@ namespace keyBoard
             japanFlag = !japanFlag;
             if (japanFlag)
             {
-                kigouFlag = 4;
+                kigouFlag = 0;
                 keyButton15.Text = "半角";
                 word = japanese;
                 testLabel2.Text = "";
@@ -435,6 +435,7 @@ namespace keyBoard
             }
             else
             {
+                kigouFlag = 4;
                 keyButton15.Text = "全角";
                 word = alphabet;
                 testLabel2.Text = "";
@@ -450,6 +451,7 @@ namespace keyBoard
                     wordCount++;
                 }
             }
+
         }
 
         private void keyButton16_MouseClick(object sender, MouseEventArgs e)
@@ -492,11 +494,22 @@ namespace keyBoard
                 int wordCount = 0;
                 foreach (Button btn in wordButtons)
                 {
+                    btn.Text = ooalphabet[wordCount, 0];
+                    wordCount++;
+                }
+                word = ooalphabet;
+                kigouFlag ++;
+            }
+            else if (kigouFlag == 5)
+            {
+                int wordCount = 0;
+                foreach (Button btn in wordButtons)
+                {
                     btn.Text = alphabet[wordCount, 0];
                     wordCount++;
                 }
-                word = japanese;
-                kigouFlag ++;
+                word = alphabet;
+                kigouFlag = 4;
             }
 
         }

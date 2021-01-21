@@ -97,3 +97,4 @@ C:\Users\s3a2\Source\Repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.csproj.Co
 C:\Users\s3a2\Source\Repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.csproj.CopyComplete
 C:\Users\s3a2\Source\Repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.exe
 C:\Users\s3a2\Source\Repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.pdb
+C:\Users\バター風味\Source\Repos\bata-FM\flikkey\keyBoard\obj\Debug\keyBoard.csprojAssemblyReference.cache
